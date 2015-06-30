@@ -1,0 +1,19 @@
+{
+  "name": "dateRange,
+  "version": "1.0.0",
+  "description": "A simple dependency-free date range selection module",
+  "main": "dateRange.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/karma start"
+  },
+  "author": "Aaron Ballard",
+  "devDependencies": {
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.12.37",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-jasmine": "^0.3.6"
+  }
+}
