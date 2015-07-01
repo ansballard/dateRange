@@ -1,10 +1,14 @@
 {
-  "name": "@ansballard/dateRange",
-  "version": "1.0.0",
+  "name": "@ansballard/daterange",
+  "version": "1.0.1",
   "description": "A simple dependency-free date range selection module",
   "main": "dateRange.js",
   "directories": {
     "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ansballard/dateRange.git"
   },
   "scripts": {
     "test": "./node_modules/.bin/karma start"
