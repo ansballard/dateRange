@@ -1,4 +1,6 @@
-describe("dateRange", function() { "use strict";
+describe("dateRange", function() {
+	"use strict";
+
   var d = dateRange; // shorthand
   var i = 0;
   var tmp;

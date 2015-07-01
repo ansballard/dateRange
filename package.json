@@ -1,5 +1,5 @@
 {
-  "name": "dateRange,
+  "name": "dateRange",
   "version": "1.0.0",
   "description": "A simple dependency-free date range selection module",
   "main": "dateRange.js",
