@@ -135,4 +135,58 @@ describe("dateRange", function() {
 
 	});
 
+	describe("Range manipulation", function() {
+
+		it("getValid*Dates() should maintain correct range after multiple changes", function() {
+			dr = dateRange(dateList);
+			expect(dr.getValidStartDates().length).toBe(dateList.length);
+			dr.setStartDate(1);
+			expect(dr.getValidEndDates().length).toBe(dateList.length - 1);
+			dr.setEndDate(dr.getList().length - 2);
+			expect(dr.getValidStartDates().length).toBe(dateList.length - 1);
+			expect(dr.getStartDateIndex()).toBe(1);
+			expect(dr.getEndDateIndex()).toBe(dateList.length - 2);
+		});
+
+		it("get*DateList() should maintain correct range after multiple changes", function() {
+			dr = dateRange(dateList);
+			for(i = 0, tmp = dr.getStartDateList(); i < tmp.length; i++) {
+				expect(tmp[i].valid).toBe(true);
+			}
+			for(i = 0, tmp = dr.getEndDateList(); i < tmp.length; i++) {
+				expect(tmp[i].valid).toBe(true);
+			}
+
+			dr.setStartDate(1);
+			tmp = dr.getEndDateList();
+			expect(tmp[0].valid).toBe(false);
+			for(i = 1; i < tmp.length; i++) {
+				expect(tmp[i].valid).toBe(true);
+			}
+
+			dr.setEndDate(dateList.length - 2);
+			tmp = dr.getStartDateList();
+			expect(tmp[dateList.length - 1].valid).toBe(false);
+			for(i = 0; i < tmp.length - 1; i++) {
+				expect(tmp[i].valid).toBe(true);
+			}
+
+			dr.setStartDate(2);
+			tmp = dr.getEndDateList();
+			expect(tmp[0].valid).toBe(false);
+			expect(tmp[1].valid).toBe(false);
+			for(i = 2; i < tmp.length; i++) {
+				expect(tmp[i].valid).toBe(true);
+			}
+
+			dr.setStartDate(1);
+			tmp = dr.getEndDateList();
+			expect(tmp[0].valid).toBe(false);
+			for(i = 1; i < tmp.length; i++) {
+				expect(tmp[i].valid).toBe(true);
+			}
+		});
+
+	});
+
 });
