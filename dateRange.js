@@ -80,6 +80,7 @@ var dateRange = function(dateList) {
 		 *	@param {integer} index Index of the desired start date
 		 */
 		setStartDate: function dateRangeSetStartDate(index) {
+			index = (+index);
 			if (index < 0 || index > endDate.index) {
 				throw "Invalid start date";
 			} else {
@@ -93,6 +94,7 @@ var dateRange = function(dateList) {
 		 *	@param {integer} index Index of the desired end date
 		 */
 		setEndDate: function dateRangeSetEndDate(index) {
+			index = (+index);
 			if (index < startDate.index || index >= objDateList.length) {
 				throw "Invalid end date";
 			} else {

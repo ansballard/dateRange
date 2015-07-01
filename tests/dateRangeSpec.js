@@ -135,6 +135,49 @@ describe("dateRange", function() {
 
 	});
 
+	describe("getValidStartDates()", function() {
+
+		it("should get a list of dates before the current end date", function() {
+			dr = dateRange(dateList);
+			expect(dr.getValidStartDates().length).toBe(dateList.length);
+			dr.setEndDate(3);
+			expect(dr.getValidStartDates().length).toBe(4);
+			for(i = 0, tmp = dr.getValidStartDates(); i < tmp.length; i++) {
+				expect(tmp[i].getTime()).toBe(dr.getList()[i].getTime());
+			}
+		});
+
+	});
+
+	describe("getValidEndDates()", function() {
+
+		it("should get a list of dates before the current end date", function() {
+			dr = dateRange(dateList);
+			expect(dr.getValidEndDates().length).toBe(dateList.length);
+			dr.setStartDate(3);
+			expect(dr.getValidEndDates().length).toBe(dateList.length - 3);
+			for(i = 0, tmp = dr.getValidEndDates(); i < tmp.length; i++) {
+				expect(tmp[i].getTime()).toBe(dr.getList()[i + 3].getTime());
+			}
+		});
+
+	});
+
+	/*describe("getStartDateList()", function() {
+
+		it("should get the full list with dates tagged as valid or not valid", function() {
+			dr = dateRange(dateList);
+			for(i = 0; i < )
+			expect(dr.getValidEndDates().length).toBe(dateList.length);
+			dr.setStartDate(3);
+			expect(dr.getValidEndDates().length).toBe(dateList.length - 3);
+			for(i = 0, tmp = dr.getValidEndDates(); i < tmp.length; i++) {
+				expect(tmp[i].getTime()).toBe(dr.getList()[i + 3].getTime());
+			}
+		});
+
+	});*/
+
 	describe("Range manipulation", function() {
 
 		it("getValid*Dates() should maintain correct range after multiple changes", function() {
