@@ -5,10 +5,10 @@
  */
 var dateRange = function(dateList) {
 	"use strict";
+
 	var i = 0;
 	var stringDateList = dateList;
 	var objDateList = [];
-	var tmpList = [];
 	var startDate = {};
 	var endDate = {};
 

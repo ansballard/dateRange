@@ -13,5 +13,8 @@
     "jasmine": true,
     "module": true,
     "dateRange": true
+  },
+  "rules": {
+    "no-unused-vars": 2
   }
 }
